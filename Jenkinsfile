@@ -24,7 +24,7 @@ pipeline {
 // steps
 def buildApp() {
 	dir ('/') {
-	String diry = "pwd".execute().text
+	diry = "pwd".execute().text
 	println diry
 		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
 	}
