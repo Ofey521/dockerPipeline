@@ -42,7 +42,7 @@ pipeline
 			steps 
 			{
 				sh "chmod +x -R ${env.WORKSPACE}"
-				runUAT(8888) 
+				runTestSitesEnabled(8888) 
 			}
 		}
 
@@ -59,7 +59,7 @@ pipeline
 			steps 
 			{ 
 				sh "chmod +x -R ${env.WORKSPACE}"
-				runUAT(88) 
+				runTestSitesEnabled(88) 
 			}
 		}
 
@@ -125,8 +125,6 @@ def deploy(environment)
 	sh "docker ps -f name=${containerName} -q | xargs --no-run-if-empty docker stop"
 	sh "docker ps -a -f name=${containerName} -q | xargs -r docker rm"
 	sh "docker run -d -p ${port}:5000 --privileged --name ${containerName} jenkinsowydoker/app:${BUILD_NUMBER}"
-
-
 }
 
 	def runUnittests() 
@@ -135,14 +133,11 @@ def deploy(environment)
 		sh "python3 tests/test_flask_app.py"
 	}
 
-	def runUAT(port) 
+	def runTestSitesEnabled(port) 
 	{
-		sh "tests/runUAT.sh ${port}"
+		sh "tests/runTestSitesEnabled.sh ${port}"
 	}
 	def approve() 
 	{
-		timeout(time:1, unit:'DAYS') 
-		{
-			input('Do you want to deploy to na produkcje kurwa ten?')
-		}
+		input('Do you want to deploy to na produkcje kurwa ten?')
 	}

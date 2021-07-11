@@ -3,7 +3,6 @@ import random
 
 app = Flask(__name__)
 
-# list of cat images
 images = [
     "https://www.wykop.pl/cdn/c3201142/comment_VSiOQHuNcsiiNMQBBFppopIqcrXSx7oJ.jpg",
     "https://d-tm.ppstatic.pl/kadry/74/fb/c7a0d57fc87191ff3e91fb3a9dd9.1000.jpg",
