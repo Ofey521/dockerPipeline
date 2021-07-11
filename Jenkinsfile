@@ -41,6 +41,7 @@ pipeline
 		{
 			steps 
 			{
+				sh "chmod +x -R ${env.WORKSPACE}"
 				runUAT(8888) 
 			}
 		}
@@ -57,6 +58,7 @@ pipeline
 		{
 			steps 
 			{ 
+				sh "chmod +x -R ${env.WORKSPACE}"
 				runUAT(88) 
 			}
 		}
