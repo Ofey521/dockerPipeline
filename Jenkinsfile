@@ -13,7 +13,7 @@ pipeline {
 		{
 			steps
 			{
-				"""
+				sh """
 					docker build -t jenkinsowydoker/app .
 				"""
 			}
@@ -23,8 +23,9 @@ pipeline {
 		{
             steps 
 			{ 
-				"""
-				docker run -rm jenkinsowydoker/app""" 
+				sh """
+				docker run -rm jenkinsowydoker/app
+				""" 
 			}
 		}
 
