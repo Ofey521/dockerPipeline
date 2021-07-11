@@ -72,7 +72,8 @@ def buildApp() {
 	}
 }
 
-def deploy(environment) {
+def deploy(environment) 
+{
 
 	def containerName = ''
 	def port = ''
@@ -94,6 +95,8 @@ def deploy(environment) {
 	sh "docker ps -a -f name=${containerName} -q | xargs -r docker rm"
 	sh "docker run -d -p ${port}:5000 --privileged --name ${containerName} jenkinsowydoker/app:${BUILD_NUMBER}"
 
+
+}
 	def runUnittests() 
 	{
 		sh "pip3 install --no-cache-dir -r requirements.txt"
@@ -104,5 +107,3 @@ def deploy(environment) {
 	{
 		sh "tests/runUAT.sh ${port}"
 	}
-
-}
