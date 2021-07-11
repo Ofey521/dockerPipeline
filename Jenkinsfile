@@ -25,8 +25,6 @@ pipeline {
 def buildApp() {
 	dir ('/') 
 	{
-		diry = "pwd".execute().text
-		println diry
 		def appImage = docker.build("jenkinsowydoker/app:${BUILD_NUMBER}")
 	}
 }
