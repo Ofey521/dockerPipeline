@@ -27,7 +27,7 @@ def buildApp() {
 	{
 		diry = "pwd".execute().text
 		println diry
-		def appImage = docker.build("hands-on-jenkins/myapp:${BUILD_NUMBER}")
+		def appImage = docker.build("jenkinsowydoker/app:${BUILD_NUMBER}")
 	}
 }
 
