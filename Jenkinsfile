@@ -21,7 +21,7 @@ pipeline {
 
 // steps
 def buildApp() {
-	dir ('dockerPipeline') 
+	dir ('') 
 	{
 		def appImage = docker.build("jenkinsowydoker/app:${BUILD_NUMBER}")
 	}
