@@ -7,6 +7,10 @@ pipeline
         disableConcurrentBuilds()
     }
 
+	environment 
+	{
+		PYTHONPATH = "${WORKSPACE}"
+	}
     stages 
 	{
 
@@ -18,7 +22,8 @@ pipeline
 			}
 		}
 
-        stage("Build") {
+        stage("Build") 
+		{
             steps 
 			{ 
 				buildApp() 
