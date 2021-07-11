@@ -9,12 +9,23 @@ pipeline {
 
     stages {
 
-        stage("Build") {
-            steps { buildApp() }
+        stage("Build") 
+		{
+			steps
+			{
+				"""
+					docker build -t jenkinsowydoker/app .
+				"""
+			}
 		}
 
-        stage("Deploy - Dev") {
-            steps { deploy('dev') }
+        stage("Run") 
+		{
+            steps 
+			{ 
+				"""
+				docker run -rm jenkinsowydoker/app""" 
+			}
 		}
 
 	}
