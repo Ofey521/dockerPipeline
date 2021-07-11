@@ -24,7 +24,7 @@ pipeline {
             steps 
 			{ 
 				sh """
-				docker run -rm jenkinsowydoker/app
+				docker run --rm jenkinsowydoker/app
 				""" 
 			}
 		}
