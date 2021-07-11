@@ -139,9 +139,10 @@ def deploy(environment)
 	{
 		sh "tests/runUAT.sh ${port}"
 	}
-	def approve() {
-
-	timeout(time:1, unit:'DAYS') 
+	def approve() 
 	{
-		input('Do you want to deploy to na produkcje kurwa ten?')
+		timeout(time:1, unit:'DAYS') 
+		{
+			input('Do you want to deploy to na produkcje kurwa ten?')
+		}
 	}
