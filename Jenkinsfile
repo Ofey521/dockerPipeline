@@ -37,7 +37,7 @@ pipeline
 				deploy('dev')
 			}
 		}
-		stage("Test - UAT Dev") 
+		stage("Test - Dev") 
 		{
 			steps 
 			{
@@ -54,7 +54,7 @@ pipeline
 			}
 		}
 
-		stage("Test - UAT Stage") 
+		stage("Test - Stage") 
 		{
 			steps 
 			{ 
@@ -79,12 +79,12 @@ pipeline
 			}
 		}
 
-		stage("Test - UAT Prod") 
+		stage("Test - Prod") 
 		{
 			steps 
 			{ 
 				sh "chmod +x -R ${env.WORKSPACE}"
-				runUAT(80) 
+				runTestSitesEnabled(80) 
 			}
 		}
 	}
