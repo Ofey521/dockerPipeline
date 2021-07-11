@@ -1,3 +1,4 @@
+
 #!/usr/bin/groovy
 
 pipeline {
@@ -9,24 +10,12 @@ pipeline {
 
     stages {
 
-        stage("Build") 
-		{
-			steps
-			{
-				sh """
-					docker build -t jenkinsowydoker/app .
-				"""
-			}
+        stage("Build") {
+            steps { buildApp() }
 		}
 
-        stage("Run") 
-		{
-            steps 
-			{ 
-				sh """
-				docker run --rm jenkinsowydoker/app
-				""" 
-			}
+        stage("Deploy - Dev") {
+            steps { deploy('dev') }
 		}
 
 	}
